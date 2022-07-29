@@ -57,7 +57,7 @@ jobs:
         profile: minimal
         toolchain: 1.61.0
         override: true
-    - run: cargo check
+    #- run: cargo check
     - uses: actions/checkout@v2
     - run: rustup component add rustfmt
     - run: cargo fmt --all -- --check
