@@ -62,6 +62,7 @@ jobs:
     - run: cargo fmt --all -- --check
     - run: rustup component add clippy
     - run: sudo apt-get update && sudo apt-get install libssl-dev pkg-config -y
+    - run: cargo update
     #- run: cargo clippy -- -D warnings
     - run: |
         if [[ ${{ needs.prologue.outputs.os_skip }} == run ]] && [[ ${{ needs.prologue.outputs.job_skip }} == run ]];then
