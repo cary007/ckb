@@ -55,7 +55,7 @@ jobs:
     - uses: actions-rs/toolchain@v1
       with:
         profile: minimal
-        toolchain: stable
+        toolchain: nightly
         override: true
     - uses: actions/checkout@v2
     - run: rustup component add rustfmt
@@ -63,6 +63,7 @@ jobs:
     - run: rustup component add clippy
     - run: sudo apt-get update && sudo apt-get install libssl-dev pkg-config -y
     - run: cargo update
+    - run: rustup component add rust-src
     #- run: cargo clippy -- -D warnings
     - run: |
         if [[ ${{ needs.prologue.outputs.os_skip }} == run ]] && [[ ${{ needs.prologue.outputs.job_skip }} == run ]];then
