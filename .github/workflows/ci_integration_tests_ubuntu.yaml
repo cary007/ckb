@@ -64,7 +64,7 @@ jobs:
     - run: rustup component add rustfmt
     #- run: cargo fmt --all -- --check
     - run: rustup component add clippy
-    - run: sudo apt-get update && sudo apt-get -y pkg-config
+    - run: sudo apt-get update && sudo apt-get install -y pkg-config
     - uses: actions/checkout@v2
     - run: |
         if [[ ${{ needs.prologue.outputs.os_skip }} == run ]] && [[ ${{ needs.prologue.outputs.job_skip }} == run ]];then
@@ -95,7 +95,7 @@ jobs:
     - run: rustup component add rustfmt
     #- run: cargo fmt --all -- --check
     - run: rustup component add clippy
-    - run: sudo apt-get update && sudo apt-get -y pkg-config
+    - run: sudo apt-get update && sudo apt-get install -y pkg-config
     - uses: actions/checkout@v2
     - name: make and copy ckb binary and testcases to bats_testbed directory
       run: |
