@@ -61,6 +61,9 @@ jobs:
         profile: minimal
         toolchain: 1.61.0
         override: true
+    - run: rustup component add rustfmt
+    - run: cargo fmt --all -- --check
+    - run: rustup component add clippy
     - run: sudo apt-get update && sudo apt-get install libssl-dev pkg-config libclang-dev clang -y 
     - uses: actions/checkout@v2
     - run: |
@@ -89,6 +92,9 @@ jobs:
         profile: minimal
         toolchain: 1.61.0
         override: true
+    - run: rustup component add rustfmt
+    - run: cargo fmt --all -- --check
+    - run: rustup component add clippy
     - run: sudo apt-get update && sudo apt-get install libssl-dev pkg-config libclang-dev clang -y 
     - uses: actions/checkout@v2
     - name: make and copy ckb binary and testcases to bats_testbed directory
