@@ -61,8 +61,8 @@ jobs:
         profile: minimal
         toolchain: 1.61.0
         override: true
-    - uses: actions/checkout@v2
     - run: sudo apt-get update && sudo apt-get install libssl-dev pkg-config libclang-dev clang -y 
+    - uses: actions/checkout@v2
     - run: |
         if [[ ${{ needs.prologue.outputs.os_skip }} == run ]] && [[ ${{ needs.prologue.outputs.job_skip }} == run ]];then
             devtools/ci/ci_main.sh
@@ -89,8 +89,8 @@ jobs:
         profile: minimal
         toolchain: 1.61.0
         override: true
-    - uses: actions/checkout@v2
     - run: sudo apt-get update && sudo apt-get install libssl-dev pkg-config libclang-dev clang -y 
+    - uses: actions/checkout@v2
     - name: make and copy ckb binary and testcases to bats_testbed directory
       run: |
         make build
