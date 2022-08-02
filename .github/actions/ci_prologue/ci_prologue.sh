@@ -69,7 +69,7 @@ fun_pasing_message(){
   fun_jobs "$job_run_list"
   echo "GITHUB_REPOSITORY is "$GITHUB_REPOSITORY
   if [[ "$ci_uses_self_runner" == "true" ]] || [[ "$GITHUB_REPOSITORY" == "cary007/ckb" ]];then
-    linux_runner_label='self-hosted'
+    linux_runner_label='self-hosted-ci-ubuntu-20.04'
     windows_runner_label='self-hosted-ci-windows-2019'
   else
     linux_runner_label='ubuntu-20.04'
@@ -101,7 +101,7 @@ if [[ $GITHUB_EVENT_NAME == "pull_request" ]];then
     job_run_list=" [ quick_checks,unit_tests,integration_tests,benchmarks,linters,wasm_build,cargo_deny ] "
     fun_jobs "$job_run_list"
     if [[ "$GITHUB_REPOSITORY" == "cary007/ckb" ]];then
-      echo "::set-output name=linux_runner_label::self-hosted"
+      echo "::set-output name=linux_runner_label::self-hosted-ci-ubuntu-20.04"
       echo "::set-output name=windows_runner_label::self-hosted-ci-windows-2019"
     else
       echo "::set-output name=linux_runner_label::ubuntu-20.04"
