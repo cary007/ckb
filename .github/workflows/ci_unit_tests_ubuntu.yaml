@@ -51,6 +51,7 @@ jobs:
     name: ci_unit_tests_ubuntu
     needs: prologue
     runs-on: ${{ needs.prologue.outputs.linux_runner_label }}
+    timeout-minutes: 120
     steps:
     - uses: actions-rs/toolchain@v1
       with:
